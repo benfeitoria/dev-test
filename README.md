@@ -20,6 +20,6 @@ O escopo da aplicação é simples :
 
 Na Benfeitoria, trabalhamos com PHP então gostaríamos de que o back-end da aplicação fosse feito em PHP. Já no front-end, sinta-se a vontade de usar o que você se sente mais familiarizado, estamos buscando reescrever grande parte do front-end então daremos bastante atenção a essa parte.
 
-Avaliaremos também como você trabalha com GIT, então esperamos que no fim do seu projeto você nos envie o seu repositório para podermos terminar a nossa avaliação.
+Avaliaremos também como você trabalha com GIT, então esperamos que no fim do seu projeto você nos envie o seu repositório submitando um pull request para esse repositório para podermos terminar a nossa avaliação.
 
 Qualquer coisa que precisar, pode entrar em contato com a gente em felipe@benfeitoria.com ou luke@benfeitoria.com, andre@benfeitoria.com ou só lançar uma issue aqui no repositório ;)
