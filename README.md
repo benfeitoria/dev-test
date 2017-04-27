@@ -1,4 +1,28 @@
-**Benfeitoria.com** - Teste Prático de Desenvolvimento
+**Benfeitoria.com** 
+
+A Benfeitoria é um laboratório de inovação que nasceu para fomentar uma cultura mais humana, colaborativa e realizadora no Brasil. Começamos em 2011 com o financiamento coletivo (nosso principal experimento) e, de lá pra cá, mirabolamos diversos conteúdos, ferramentas e projetos, como o [http://riomais.benfeitoria.com/](Rio+), a [http://ufc.benfeitoria.com/](Universidade do Financiamento Coletivo) e o [http://reboot.benfeitoria.com/](Festival Reboot).
+
+Constantemente estamos procurando novas pessoas para trabalhar no nosso time técnico construindo as ferramentas que suportam o nosso trabalho em rede.
+
+**Vagas Abertas ATM**
+
+Estágiario de Desenvolvimento (1 vaga)
+-----------------------------------------------------
+
+Curtiu a nossa proposta e quer trabalhar na Benfeitoria? Evoluir a aplicações que giram nosso trabalho em rede e colaboram para a existência de dezenas de projetos Brasil a fora?
+
+Para trabalhar na nossa equipe você precisa se sentir confortável em experimentar coisas fora da sua zona de conforto e entender ou ter disponibilidade para aprender o seguinte stack :
+
+* Javascript
+* PHP
+* HTML / CSS
+* MySQL
+
+Nossa seleção é em duas etapas, o teste pŕático que segue somado de uma conversa para você entender te conhecermos melhor e entendermos o seu alinhamento com o nosso negócio. 
+
+-----------------------------------------------------
+
+**Teste Prático**
 
 Esse é um teste prático para analisar seu conhecimento em desenvolvimento no geral, passando pela forma que você organiza o seu código e até como faz a lógica de certas partes do mesmo.
 
