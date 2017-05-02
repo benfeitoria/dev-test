@@ -1,12 +1,14 @@
-#Benfeitoria.com 
+Benfeitoria.com
+----------------------------------------------
 
 A Benfeitoria é um laboratório de inovação que nasceu para fomentar uma cultura mais humana, colaborativa e realizadora no Brasil. Começamos em 2011 com o financiamento coletivo (nosso principal experimento) e, de lá pra cá, mirabolamos diversos conteúdos, ferramentas e projetos, como o [Rio+](http://riomais.benfeitoria.com/), a [Universidade do Financiamento Coletivo](http://ufc.benfeitoria.com/) e o [Festival Reboot](http://reboot.benfeitoria.com/).
 
 Constantemente estamos procurando novas pessoas para trabalhar no nosso time técnico construindo as ferramentas que suportam o nosso trabalho em rede.
 
-##Vagas Abertas ATM
+Vagas Abertas ATM
+-------------------------------------------------------
 
-####Estágiario de Desenvolvimento (1 vaga)
+**Estágiario de Desenvolvimento (1 vaga)**
 
 Curtiu a nossa proposta e quer trabalhar na Benfeitoria? Evoluir a aplicações que giram nosso trabalho em rede e colaboram para a existência de dezenas de projetos Brasil a fora?
 
@@ -20,7 +22,8 @@ Para trabalhar na nossa equipe você precisa se sentir confortável em experimen
 Nossa seleção é em duas etapas, o teste pŕático que segue somado de uma conversa para você entender te conhecermos melhor e entendermos o seu alinhamento com o nosso negócio. 
 
 
-##Teste Prático
+Teste Prático
+------------------------------------------------------------
 
 Esse é um teste prático para analisar seu conhecimento em desenvolvimento no geral, passando pela forma que você organiza o seu código e até como faz a lógica de certas partes do mesmo.
 
