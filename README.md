@@ -1,12 +1,12 @@
 Benfeitoria.com
-----------------------------------------------
+---------------
 
 A Benfeitoria é um laboratório de inovação que nasceu para fomentar uma cultura mais humana, colaborativa e realizadora no Brasil. Começamos em 2011 com o financiamento coletivo (nosso principal experimento) e, de lá pra cá, mirabolamos diversos conteúdos, ferramentas e projetos, como o [Rio+](http://riomais.benfeitoria.com/), a [Universidade do Financiamento Coletivo](http://ufc.benfeitoria.com/) e o [Festival Reboot](http://reboot.benfeitoria.com/).
 
 Constantemente estamos procurando novas pessoas para trabalhar no nosso time técnico construindo as ferramentas que suportam o nosso trabalho em rede.
 
 Teste Prático
-------------------------------------------------------------
+-------------
 
 Esse é um teste prático para analisar seu conhecimento em desenvolvimento no geral, passando pela forma que você organiza o seu código e até como faz a lógica de certas partes do mesmo.
 
@@ -37,6 +37,8 @@ Para enviar seu projeto, crie um repositório no git e inclua os perfis:
 - @andrepiacentini
 - @felipescb
 - @lucasmgonzalez
+- @andtxr
+- @jorgejr568
 
 Assim que a inclusão dos perfis for feita analisaremos seu projeto.
 
