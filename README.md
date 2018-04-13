@@ -5,19 +5,17 @@ A Benfeitoria é um laboratório de inovação que nasceu para fomentar uma cult
 
 Constantemente estamos procurando novas pessoas para trabalhar no nosso time técnico construindo as ferramentas que suportam o nosso trabalho em rede.
 
-Teste Prático
--------------
+Teste Prático - Blog
+--------------------
 
 Esse é um teste prático para analisar seu conhecimento em desenvolvimento no geral, passando pela forma que você organiza o seu código e até como faz a lógica de certas partes do mesmo.
 
-A aplicação que gostariamos de ver é um pequeno blog. Este possuirá apenas três páginas: A página inicial com listagem de postagens, uma página com contéudo de uma postagem específica e uma página administrativa para adicionar postagens. 
+A aplicação que gostariamos de ver é um pequeno blog. Este possuirá apenas três páginas: A página inicial com listagem de postagens, uma página com contéudo de uma postagem específica e uma página administrativa para adicionar postagens.
 
-Colocamos um layout padrão para a página inicial, mas fica em aberto o design das páginas.
-
-Os únicos pontos obrigatórios na página principal são:
-
-* Deve haver um menu principal com o mesmo número de links e um dropdown;
-* As postagens devem estar em cartões que devem ser links para a devida postagem (o cartão não pode mostrar todo o contéudo da postagem);
+**Must have**
+- Colocamos um layout padrão para a [página inicial](Desktop.jpg), mas fica a seu critério o design das páginas.
+- Deve haver um menu principal com o mesmo número de links e um dropdown;
+- As postagens devem estar em cartões que devem ser links para a devida postagem (o cartão não pode mostrar todo o contéudo da postagem);
   
 **O que vamos avaliar**
 - Responsividade do site (uso mobile);
@@ -41,12 +39,15 @@ Na Benfeitoria, trabalhamos com PHP então:
 - O back-end da aplicação deve ser feito em PHP.
 - No front-end, sinta-se a vontade de usar o que você se sente mais familiarizado.
 
+Estamos buscando reescrever grande parte do front-end então daremos bastante atenção a essa parte.
+
+Avaliaremos também como você trabalha com GIT, então esperamos que no fim do seu projeto você nos envie o seu repositório para podermos terminar a nossa avaliação.
+
 Para enviar seu projeto, crie um repositório no git e inclua os perfis:
+
 - @andrepiacentini
 - @felipescb
 - @andtxr
 - @jorgejr568
 
-Assim que a inclusão dos perfis for feita analisaremos seu projeto.
-
-Qualquer dúvida entre em contato conosco em voce@benfeitoria.com com o assunto "[Teste de desenvolvimento] {Assunto de sua dúvida}". ;)
+Qualquer coisa que precisar, pode entrar em contato com a gente em felipe@benfeitoria.com, deco@benfeitoria.com, jorgejunior@benfeitoria.com, andre@benfeitoria.com
