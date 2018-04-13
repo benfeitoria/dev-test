@@ -12,16 +12,21 @@ Esse é um teste prático para analisar seu conhecimento em desenvolvimento no g
 
 A aplicação que gostariamos de ver é um pequeno blog. Este possuirá apenas três páginas: A página inicial com listagem de postagens, uma página com contéudo de uma postagem específica e uma página administrativa para adicionar postagens. 
 
-Colocamos um layout padrão para a página inicial, mas fica em aberto o design das páginas. Os únicos pontos obrigatórios na página principal são: deve haver um menu principal com o mesmo número de links e um dropdown; e as postagens devem estar em cartões que devem ser links para a devida postagem(o cartão não pode mostrar todo o contéudo da postagem). 
+Colocamos um layout padrão para a página inicial, mas fica em aberto o design das páginas.
+
+Os únicos pontos obrigatórios na página principal são:
+
+* Deve haver um menu principal com o mesmo número de links e um dropdown;
+* As postagens devem estar em cartões que devem ser links para a devida postagem (o cartão não pode mostrar todo o contéudo da postagem);
   
 **O que vamos avaliar**
-- Responsividade do site(uso mobile);
+- Responsividade do site (uso mobile);
 - Qualidade de HTML;
 - Qualidade de CSS;
 - Qualidade de código;
 - Conhecimento de orientação em objetos;
 - Tempo de desenvolvimento;
-- Performance da paǵina(tempo de carregamento);
+- Performance da paǵina (tempo de carregamento);
 
 **Diferencial**
 - Framework de desenvolvimento;
@@ -29,14 +34,16 @@ Colocamos um layout padrão para a página inicial, mas fica em aberto o design 
 - Desenvolvimento DDD;
 - Paginação, quando necessário;
 - Criação de API;
-- Código comentado em inglês(Seja simples e direto, não abuse da documentação);
+- Código comentado em inglês (seja simples e direto, não abuse da documentação);
 
-Na Benfeitoria, trabalhamos com PHP então o back-end da aplicação deve ser feito em PHP. Já no front-end, sinta-se a vontade de usar o que você se sente mais familiarizado.
+Na Benfeitoria, trabalhamos com PHP então:
+
+- O back-end da aplicação deve ser feito em PHP.
+- No front-end, sinta-se a vontade de usar o que você se sente mais familiarizado.
 
 Para enviar seu projeto, crie um repositório no git e inclua os perfis:
 - @andrepiacentini
 - @felipescb
-- @lucasmgonzalez
 - @andtxr
 - @jorgejr568
 
