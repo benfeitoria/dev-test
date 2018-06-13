@@ -59,9 +59,8 @@ Avaliaremos também como você trabalha com GIT, então esperamos que no fim do 
 
 Para enviar seu projeto, crie um repositório no git e inclua os perfis:
 
-- @andrepiacentini
 - @felipescb
 - @andtxr
 - @jorgejr568
 
-Qualquer coisa que precisar, pode entrar em contato com a gente em felipe@benfeitoria.com, deco@benfeitoria.com, jorgejunior@benfeitoria.com, andre@benfeitoria.com
+Qualquer coisa que precisar, pode entrar em contato com a gente em felipe@benfeitoria.com, deco@benfeitoria.com, jorgejunior@benfeitoria.com
