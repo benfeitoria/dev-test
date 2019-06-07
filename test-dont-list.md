@@ -55,4 +55,4 @@ Na Benfeitoria, trabalhamos com PHP então:
 
 Avaliaremos também como você trabalha com GIT, então esperamos que no fim do seu projeto você nos envie o seu repositório para podermos terminar a nossa avaliação.
 
-Para enviar seu projeto, crie um repositório no git e envie o link para: [dev@benfeitoria.com](mailto:dev@benfeitoria.com?subject=Vaga Desenvolvedor PHP Full Stack)
+Para enviar seu projeto, crie um repositório no git e envie o link para: [dev@benfeitoria.com](mailto:dev@benfeitoria.com)
