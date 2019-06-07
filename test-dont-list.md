@@ -51,7 +51,7 @@ O escopo da aplicação é simples:
 Na Benfeitoria, trabalhamos com PHP então:
 
 - O back-end da aplicação deve ser feito em PHP.
-- No front-end, sinta-se a vontade de usar o que você se sente mais familiarizado.
+- No front-end, sinta-se a vontade de usar o que você se sente mais familiarizado. O ideal é utilizar um framework front-end reativo como o VueJS.
 
 Avaliaremos também como você trabalha com GIT, então esperamos que no fim do seu projeto você nos envie o seu repositório para podermos terminar a nossa avaliação.
 
