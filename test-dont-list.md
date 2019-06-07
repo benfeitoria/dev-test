@@ -32,19 +32,19 @@ O escopo da aplicação é simples:
 - Qualquer tipo de teste (unit, acceptance...)
 
 **O que vamos avaliar**
-- Responsividade do site (uso mobile);
+- Responsividade do site;
 - Qualidade de HTML;
 - Qualidade de CSS;
 - Qualidade de código;
 - Conhecimento de orientação em objetos;
 - Tempo de desenvolvimento;
-- Performance da paǵina (tempo de carregamento);
+- Performance da paǵina;
 
 **Diferencial**
 - Framework de desenvolvimento;
 - Testes automatizados;
 - Desenvolvimento DDD;
-- Paginação, quando necessário;
+- Paginação, quando e se necessário;
 - Criação de API;
 - Código comentado em inglês (seja simples e direto, não abuse da documentação);
 
@@ -53,14 +53,6 @@ Na Benfeitoria, trabalhamos com PHP então:
 - O back-end da aplicação deve ser feito em PHP.
 - No front-end, sinta-se a vontade de usar o que você se sente mais familiarizado.
 
-Estamos buscando reescrever grande parte do front-end então daremos bastante atenção a essa parte.
-
 Avaliaremos também como você trabalha com GIT, então esperamos que no fim do seu projeto você nos envie o seu repositório para podermos terminar a nossa avaliação.
 
-Para enviar seu projeto, crie um repositório no git e inclua os perfis:
-
-- @felipescb
-- @andtxr
-- @jorgejr568
-
-Qualquer coisa que precisar, pode entrar em contato com a gente em felipe@benfeitoria.com, deco@benfeitoria.com, jorgejunior@benfeitoria.com
+Para enviar seu projeto, crie um repositório no git e envie o link para: [dev@benfeitoria.com](mailto:dev@benfeitoria.com?subject=Vaga Desenvolvedor PHP Full Stack)
