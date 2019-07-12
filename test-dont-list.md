@@ -24,6 +24,7 @@ O escopo da aplicação é simples:
 - Em cada lista a pessoa tem a opção de adicionar um item, dar um item como finalizado ou remover o item.
 - Habilidade de ordenar / re-ordenar a lista de tasks
 - Não queremos a aplicação com off-layout, mostre que você sabe css e crie um estilo para sua aplicação.
+- Subir a aplicação em um ambiente cloud. (DigitalOcean, Linode, Azure, AWS, etc)
 
 **Nice to Have**
 - Acessar /{qualquer-coisa}/{qualquer-coisa-filho}/.../ funciona criando / dando retrieve em lista.
