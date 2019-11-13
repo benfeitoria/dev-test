@@ -10,37 +10,46 @@ Teste Prático - Blog
 
 Esse é um teste prático para analisar seu conhecimento em desenvolvimento no geral, passando pela forma que você organiza o seu código e até como faz a lógica de certas partes do mesmo.
 
-A aplicação que gostariamos de ver é um pequeno blog. Este possuirá apenas três páginas: A página inicial com listagem de postagens, uma página com contéudo de uma postagem específica e uma página administrativa para adicionar postagens.
 
-**Must have**
-- Colocamos um layout padrão para a [página inicial](Desktop.jpg), mas fica a seu critério o design das páginas.
-- Deve haver um menu principal com o mesmo número de links e um dropdown;
-- As postagens devem estar em cartões que devem ser links para a devida postagem (o cartão não pode mostrar todo o contéudo da postagem);
+**Requisitos funcionais**
+
+A aplicação que gostariamos de ver é um pequeno blog, contento as seguintes páginas:
+
+- Página para listar as postagens;
+  - Deve incluir um filtro para encontrar postagens por texto;
+  - Deve incluir um filtro para encontrar postagens por autor;
+- Página para visualização de postagem;
+  - Deve possuir paginação;
+- Página para inclusão e exclusão de postagens;
+  - Deve incluir um filtro para encontrar postagens por input do tipo texto;
+  - Deve possuir paginação;
+  - Deve possuir acesso restrito;
+
+As postagens devem incluir:
+
+- autor
+- imagem de identificação
+- título
+- conteúdo
+- data de publicação
+
+**Requisitos não funcionais**
+
+- Responsividade
+- PHP 7
+- Framework Laravel 6
+- API REST
+- Framework VueJS
+  - Não é necessário desenvolver uma SPA, a aplicação pode utilizar componentes do VueJS onde for necessário nos templates blade.
+- Versionamento no Github
+- Documentação de setup da aplicação no próprio repositório
 
 **O que vamos avaliar**
-- Responsividade do site;
-- Qualidade de HTML;
-- Qualidade de CSS;
-- Qualidade de código;
-- Conhecimento de orientação em objetos;
-- Tempo de desenvolvimento;
-- Performance da paǵina;
 
-**Diferencial**
-- Framework de desenvolvimento;
-- Testes automatizados;
-- Desenvolvimento DDD;
-- Paginação, quando e se necessário;
-- Criação de API;
-- Código comentado em inglês (seja simples e direto, não abuse da documentação);
+- Qualidade de HTML e CSS;
+- Conhecimento de OO;
+- Design Patterns aplicados ao PHP;
+- Utilização de recursos disponíveis do Laravel e do VueJS;
+- Utilização do Git;
 
-Na Benfeitoria, trabalhamos com PHP então:
-
-- O back-end da aplicação deve ser feito em PHP.
-- No front-end, sinta-se a vontade de usar o que você se sente mais familiarizado. O ideal é utilizar um framework front-end reativo como o VueJS.
-
-Estamos buscando reescrever grande parte do front-end então daremos bastante atenção a essa parte.
-
-Avaliaremos também como você trabalha com GIT, então esperamos que no fim do seu projeto você nos envie o seu repositório para podermos terminar a nossa avaliação.
-
-Para enviar seu projeto, crie um repositório no git e envie o link para: [dev@benfeitoria.com](mailto:dev@benfeitoria.com?subject=Vaga Desenvolvedor PHP Full Stack)
+Após concluir o seu projeto, envie o link do mesmo para [dev@benfeitoria.com](mailto:dev@benfeitoria.com?subject=Vaga Desenvolvedor(a) PHP Full Stack)
