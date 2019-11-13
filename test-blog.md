@@ -52,4 +52,4 @@ As postagens devem incluir:
 - Utilização de recursos disponíveis do Laravel e do VueJS;
 - Utilização do Git;
 
-Após concluir o seu projeto, envie o link do mesmo para [dev@benfeitoria.com](mailto:dev@benfeitoria.com?subject=Vaga Desenvolvedor(a) PHP Full Stack)
+Após concluir o seu projeto, envie o link do mesmo para [dev@benfeitoria.com](mailto:dev@benfeitoria.com)
