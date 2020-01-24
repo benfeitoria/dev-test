@@ -8,7 +8,7 @@ Constantemente estamos procurando novas pessoas para trabalhar no nosso time té
 Teste Prático - Blog
 --------------------
 
-Esse é um teste prático para analisar seu conhecimento em desenvolvimento no geral, passando pela forma que você organiza o seu código e até como faz a lógica de certas partes do mesmo.
+Esse é um teste prático para analisar seu conhecimento em desenvolvimento no geral, passando pela forma que você organiza o seu código e desenvolve sua lógica.
 
 
 **Requisitos funcionais**
@@ -27,6 +27,7 @@ A aplicação que gostariamos de ver é um pequeno blog, contento as seguintes p
   - Deve possuir acesso restrito;
 - Página para listar as categorias de postagens;
 - Página para inclusão e exclusão de categorias de postagens;
+  - Deve possuir acesso restrito;
 
 As postagens devem incluir:
 
