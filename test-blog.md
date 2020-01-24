@@ -16,6 +16,7 @@ Esse é um teste prático para analisar seu conhecimento em desenvolvimento no g
 A aplicação que gostariamos de ver é um pequeno blog, contento as seguintes páginas:
 
 - Página para listar as postagens;
+  - Deve incluir um filtro para encontrar postagens por categoria;
   - Deve incluir um filtro para encontrar postagens por texto;
   - Deve incluir um filtro para encontrar postagens por autor;
 - Página para visualização de postagem;
@@ -24,6 +25,8 @@ A aplicação que gostariamos de ver é um pequeno blog, contento as seguintes p
   - Deve incluir um filtro para encontrar postagens por input do tipo texto;
   - Deve possuir paginação;
   - Deve possuir acesso restrito;
+- Página para listar as categorias de postagens;
+- Página para inclusão e exclusão de categorias de postagens;
 
 As postagens devem incluir:
 
@@ -32,6 +35,7 @@ As postagens devem incluir:
 - título
 - conteúdo
 - data de publicação
+- categorias
 
 **Requisitos não funcionais**
 
@@ -52,4 +56,4 @@ As postagens devem incluir:
 - Utilização de recursos disponíveis do Laravel e do VueJS;
 - Utilização do Git;
 
-Após concluir o seu projeto, envie o link do mesmo para [dev@benfeitoria.com](mailto:dev@benfeitoria.com)
+Após concluir o seu projeto, envie um pull request para este repositório.
