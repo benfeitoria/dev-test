@@ -43,7 +43,7 @@ class PostController extends Controller
             if ($validation->fails()) {
                 $erros = "";
                 foreach ($validation->errors()->getMessages() as $erro) {
-                    $erros .= $erro[0] . "<br/>";
+                    $erros .= $erro[0] . "\n";
                 }
                 throw  new Exception($erros);
             }
@@ -119,7 +119,7 @@ class PostController extends Controller
             if ($validation->fails()) {
                 $erros = "";
                 foreach ($validation->errors()->getMessages() as $erro) {
-                    $erros .= $erro[0] . "<br/>";
+                    $erros .= $erro[0] . "\n";
                 }
                 throw  new Exception($erros);
             }

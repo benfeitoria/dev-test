@@ -167,8 +167,7 @@
                     this.posts = data.data;
                     this.paginate.total = data.last_page;
                 } catch (e) {
-                    alert("Ocorreu um erro!");
-                    console.log(e);
+                    Vue.$toast.error("Ocorreu um erro!");
                 }
 
             },
@@ -185,8 +184,7 @@
                     const data = await resp.data;
                     this.categories = data;
                 } catch (e) {
-                    alert("Ocorreu um erro!");
-                    console.log(e);
+                    Vue.$toast.error("Ocorreu um erro!");
                 }
 
 
@@ -210,12 +208,12 @@
                         this.closeModal();
                         this.paginate = new paginateModel();
                         this.getPosts();
-                        alert(data.message);
+                        Vue.$toast.success(data.message);
                     } else {
-                        alert(data.message);
+                        Vue.$toast.warning(data.message);
                     }
                 } catch (e) {
-                    console.log(e);
+                    Vue.$toast.error("Ocorreu um erro!");
                 }
 
             },
@@ -240,15 +238,14 @@
                         this.closeModal();
                         this.paginate = new paginateModel();
                         this.getPosts();
-                        alert(data.message);
+                        Vue.$toast.success(data.message);
                     } else {
-                        alert(data.message);
+                        Vue.$toast.warning(data.message);
                     }
                 } catch (e) {
                     if (e.response.status == 403) {
-                        alert(e.response.data.message);
+                        Vue.$toast.error(e.response.data.message);
                     }
-                    console.log(e);
                 }
             },
             deletePost: async function (id) {
@@ -258,16 +255,15 @@
                         const resp = await axios.delete(`${this.urlApi}/${id}`);
                         const data = await resp.data;
                         if (data.success) {
-                            alert(data.message);
+                            Vue.$toast.success(data.message);
                             this.getPosts();
                         } else {
-                            alert(data.message);
+                            Vue.$toast.warning(data.message);
                         }
                     } catch (e) {
                         if (e.response.status == 403) {
-                            alert(e.response.data.message);
+                            Vue.$toast.error(e.response.data.message);
                         }
-                        console.log(e);
                     }
 
                 }
@@ -279,18 +275,16 @@
                         const resp = await axios.put(`${this.urlApi}/publication/${id}`);
                         const data = await resp.data;
                         if (data.success) {
-                            alert(data.message);
+                            Vue.$toast.success(data.message);
                             this.getPosts();
                         } else {
-                            alert(data.message);
+                            Vue.$toast.warning(data.message);
                         }
 
                     } catch (e) {
                         if (e.response.status == 403) {
-                            alert(e.response.data.message);
+                            Vue.$toast.error(e.response.data.message);
                         }
-                        console.log(e);
-
                     }
 
                 }

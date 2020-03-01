@@ -31,7 +31,9 @@
         </div>
         <div class="col-md-8 bg-white rounded p-2">
             <div class="row">
+
                 <div class="col-md-4 mb-4" v-for="post of posts">
+                    <a :href="'post-show/'+post.id" class="link-card">
                     <div class="card">
                         <img :src="post.urlImage" class="card-img-top" style="max-height:150px">
                         <div class="card-body">
@@ -42,7 +44,9 @@
                             Data de publicação: {{post.publicationDatePtBr}}
                         </div>
                     </div>
+                    </a>
                 </div>
+
                 <div v-if="posts.length < 1" class="col-md-12 m-2">
                     <h3  class="text-center">Nenhum post encontrado!</h3>
                 </div>
@@ -54,6 +58,7 @@
                         @resetCurrent="paginate.page = $event"
                     />
                 </div>
+
             </div>
         </div>
     </div>
@@ -102,8 +107,7 @@
                     this.posts = data.data;
                     this.paginate.total = data.last_page;
                 } catch (e) {
-                    alert("Ocorreu um erro!");
-                    console.log(e);
+                    Vue.$toast.error("Ocorreu um erro!");
                 }
             },
             getContentShort: function (content) {
@@ -116,8 +120,7 @@
                     const data = await resp.data;
                     this.categories = data;
                 } catch (e) {
-                    alert("Ocorreu um erro!");
-                    console.log(e);
+                    Vue.$toast.error("Ocorreu um erro!");
                 }
             },
             getAuthors: async function(){
@@ -126,8 +129,7 @@
                     const data = await resp.data;
                     this.authors = data;
                 } catch (e) {
-                    alert("Ocorreu um erro!");
-                    console.log(e);
+                    Vue.$toast.error("Ocorreu um erro!");
                 }
             }
         },
@@ -135,5 +137,7 @@
 </script>
 
 <style scoped>
-
+.link-card{
+    text-decoration: none;
+}
 </style>

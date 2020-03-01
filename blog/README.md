@@ -23,8 +23,15 @@ Cria o repositório de migração
 popular o banco de dados com registros
 <br><code>php artisan db:seed</code>
 </p>
+
 <p>
 Cria um link simbólico de ""public/storage"" para "storage/app/public"
 <br><code>php artisan storage:link</code>
 </p>
+<p>
+Executar a aplicação
+<br><code>php artisan serve</code> ou
+<br><code>sudo php -S localhost:80 -t public</code>
+</p>
+
 

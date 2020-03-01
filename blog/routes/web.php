@@ -11,9 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function () {return view('welcome');});
+Route::get('/post-show/{id}', function ($id) {
+    $post  =  \App\Model\Post::find($id);
+    if(!$post){
+        return redirect('/');
+    }
+    return view('post-show',['post'=>$post]);
 });
+
 Auth::routes();
 
 

@@ -125,8 +125,7 @@
                     this.categories = data.data;
                     this.paginate.total = data.last_page;
                 } catch (e) {
-                    alert("Ocorreu um erro!");
-                    console.log(e);
+                    Vue.$toast.error("Ocorreu um erro!");
                 }
 
             },
@@ -155,14 +154,12 @@
                         this.paginate.total = 0;
                         this.getCategories();
                         this.category = {};
-                        alert(data.message);
+                        Vue.$toast.success(data.message);
                     } else {
-                        alert(data.message);
+                        Vue.$toast.warning(data.message);
                     }
-                    console.log(data);
                 } catch (e) {
-                    alert("Ocorreu um erro!");
-                    console.log(e);
+                    Vue.$toast.error("Ocorreu um erro!");
                 }
             },
             edit: function (category) {
@@ -178,11 +175,12 @@
                         this.closeModal();
                         this.getCategories();
                         this.category = {};
-                        alert(data.message);
+                        Vue.$toast.success(data.message);
+                    }else{
+                        Vue.$toast.warning(data.message);
                     }
-                    console.log(data);
                 } catch (e) {
-                    console.log(e);
+                    Vue.$toast.error("Ocorreu um erro!");
                 }
             },
             deleteCategory: async function (id) {
@@ -193,13 +191,13 @@
                         const resp = await axios.delete(`${this.urlApi}/${id}`);
                         const data = await resp.data;
                         if (data.success) {
-                            alert(data.message);
+                            Vue.$toast.success(data.message);
                             this.getCategories();
                         }else{
-                            alert(data.message);
+                            Vue.$toast.warning(data.message);
                         }
                     }catch (e) {
-                        console.log(e);
+                        Vue.$toast.error("Ocorreu um erro!");
                     }
 
                 }
