@@ -32,6 +32,7 @@
                                 <td>#</td>
                                 <td>Imagem</td>
                                 <td>Title</td>
+                                <td>Autor</td>
                                 <td>Categoria</td>
                                 <td>Ação</td>
                             </tr>
@@ -41,17 +42,20 @@
                                 <td>{{post.id}}</td>
                                 <td><img :src="post.urlImage" class="img-post"/></td>
                                 <td>{{post.title}}</td>
+                                <td>{{post.user.name}}</td>
                                 <td>{{post.categories.name}}</td>
                                 <td class="text-center">
                                     <div class="btn-group" role="group">
-                                    <a class="btn btn-sm btn-primary text-white" @click="edit(post)">Editar</a>
-                                    <a class="btn btn-sm btn-danger text-white" @click="deletePost(post.id)">Excluir</a>
-                                        <a class="btn btn-sm btn-info text-white" @click="publictionOrRemove(post.id)" >{{ post.publication_date==null ? 'Publicar' : 'Remover'}}</a>
+                                        <a class="btn btn-sm btn-primary text-white" @click="edit(post)">Editar</a>
+                                        <a class="btn btn-sm btn-danger text-white"
+                                           @click="deletePost(post.id)">Excluir</a>
+                                        <a class="btn btn-sm btn-info text-white" @click="publictionOrRemove(post.id)">{{
+                                            post.publication_date==null ? 'Publicar' : 'Remover'}}</a>
                                     </div>
                                 </td>
                             </tr>
                             <tr v-if="posts.length < 1">
-                                <td colspan="3" class="text-center">Nenhum post encontrado!</td>
+                                <td colspan="6" class="text-center">Nenhum post encontrado!</td>
                             </tr>
                             </tbody>
                         </table>
@@ -179,7 +183,6 @@
                 try {
                     const resp = await axios.get(`${this.urlApiCategories}/all`);
                     const data = await resp.data;
-                    console.log(data);
                     this.categories = data;
                 } catch (e) {
                     alert("Ocorreu um erro!");
@@ -208,7 +211,7 @@
                         this.paginate = new paginateModel();
                         this.getPosts();
                         alert(data.message);
-                    }else{
+                    } else {
                         alert(data.message);
                     }
                 } catch (e) {
@@ -238,33 +241,58 @@
                         this.paginate = new paginateModel();
                         this.getPosts();
                         alert(data.message);
-                    }else{
+                    } else {
                         alert(data.message);
                     }
                 } catch (e) {
+                    if (e.response.status == 403) {
+                        alert(e.response.data.message);
+                    }
                     console.log(e);
                 }
             },
             deletePost: async function (id) {
                 const resp = confirm("Deseja excluir?");
                 if (resp) {
-                    const resp = await axios.delete(`${this.urlApi}/${id}`);
-                    const data = await resp.data;
-                    if (data.success) {
-                        alert(data.message);
-                        this.getPosts();
+                    try {
+                        const resp = await axios.delete(`${this.urlApi}/${id}`);
+                        const data = await resp.data;
+                        if (data.success) {
+                            alert(data.message);
+                            this.getPosts();
+                        } else {
+                            alert(data.message);
+                        }
+                    } catch (e) {
+                        if (e.response.status == 403) {
+                            alert(e.response.data.message);
+                        }
+                        console.log(e);
                     }
+
                 }
             },
             publictionOrRemove: async function (id) {
                 const resp = confirm("Deseja realizar essa ação?");
                 if (resp) {
-                    const resp = await axios.put(`${this.urlApi}/publication/${id}`);
-                    const data = await resp.data;
-                    if (data.success) {
-                        alert(data.message);
-                        this.getPosts();
+                    try {
+                        const resp = await axios.put(`${this.urlApi}/publication/${id}`);
+                        const data = await resp.data;
+                        if (data.success) {
+                            alert(data.message);
+                            this.getPosts();
+                        } else {
+                            alert(data.message);
+                        }
+
+                    } catch (e) {
+                        if (e.response.status == 403) {
+                            alert(e.response.data.message);
+                        }
+                        console.log(e);
+
                     }
+
                 }
             }
         }

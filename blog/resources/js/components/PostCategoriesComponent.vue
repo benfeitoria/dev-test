@@ -188,12 +188,20 @@
             deleteCategory: async function (id) {
                 const resp = confirm("Deseja excluir?");
                 if (resp) {
-                    const resp = await axios.delete(`${this.urlApi}/${id}`);
-                    const data = await resp.data;
-                    if (data.success) {
-                        alert(data.message);
-                        this.getCategories();
+                    try
+                    {
+                        const resp = await axios.delete(`${this.urlApi}/${id}`);
+                        const data = await resp.data;
+                        if (data.success) {
+                            alert(data.message);
+                            this.getCategories();
+                        }else{
+                            alert(data.message);
+                        }
+                    }catch (e) {
+                        console.log(e);
                     }
+
                 }
             }
 

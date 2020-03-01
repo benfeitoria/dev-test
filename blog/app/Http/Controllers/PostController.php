@@ -102,6 +102,30 @@ class PostController extends Controller
         DB::beginTransaction();
         try {
 
+            $regras = [
+                'id' => 'required|numeric',
+                'content' => 'required',
+                'title' => 'required|max:200',
+                'category_id' => 'required|numeric',
+            ];
+
+
+            if ($request->hasFile('image')) {
+                $regras['image'] = 'required|mimes:jpeg,png';
+            }
+
+            $validation = Validator::make($request->all(), $regras);
+
+            if ($validation->fails()) {
+                $erros = "";
+                foreach ($validation->errors()->getMessages() as $erro) {
+                    $erros .= $erro[0] . "<br/>";
+                }
+                throw  new Exception($erros);
+            }
+
+            $post = Post::find($request->get('id'));
+            $this->authorize('update', $post);
 
             // Verifica se informou o arquivo e se é válido
             if ($request->hasFile('image')) {
@@ -128,30 +152,6 @@ class PostController extends Controller
                 }
 
             }
-
-            $regras = [
-                'id' => 'required|numeric',
-                'content' => 'required',
-                'title' => 'required|max:200',
-                'category_id' => 'required|numeric',
-            ];
-
-
-            if ($request->hasFile('image')) {
-                $regras['image'] = 'required|mimes:jpeg,png';
-            }
-
-            $validation = Validator::make($request->all(), $regras);
-
-            if ($validation->fails()) {
-                $erros = "";
-                foreach ($validation->errors()->getMessages() as $erro) {
-                    $erros .= $erro[0] . "<br/>";
-                }
-                throw  new Exception($erros);
-            }
-
-            $post = Post::find($request->get('id'));
             $image_old = $post->image;
             if ($request->hasFile('image')) {
                 $post->image = $nameFile;
@@ -191,8 +191,10 @@ class PostController extends Controller
                 throw new \Exception("ID deve ser numerico");
             }
 
-            $postCategory = Post::find($id);
-            if (!$postCategory->delete()) {
+            $post = Post::find($id);
+
+            $this->authorize('delete', $post);
+            if (!$post->delete()) {
                 throw new \Exception("Não foi possivel excluir o post");
             }
 
@@ -215,6 +217,7 @@ class PostController extends Controller
     {
         try {
             $post = Post::find($id);
+            $this->authorize('publictionOrRemove', $post);
             if (!$post) {
                 throw new \Exception("Post não encontrado!");
             }

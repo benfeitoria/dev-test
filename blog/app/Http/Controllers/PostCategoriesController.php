@@ -118,8 +118,16 @@ class PostCategoriesController extends Controller
             ];
 
         } catch (Exception $ex) {
+            switch ($ex->getCode()){
+                case 23000:
+                    $message = "Não é possivel excluir categoria pois possui relação com um ou mais posts";
+                    break;
+                default:
+                    $message = $ex->getMessage();
+                    break;
+            }
             $response = [
-                "message" => $ex->getMessage(),
+                "message" => $message,
                 "success" => false
             ];
         }

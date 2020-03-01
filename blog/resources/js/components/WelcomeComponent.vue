@@ -25,8 +25,8 @@
                 </select>
             </div>
             <div class="btn-group col-md-12">
-                <a class="btn btn-primary text-white" @click="getRecentPosts">Filtrar</a>
-                <a class="btn btn-secondary text-white">Limpar</a>
+                <a class="btn btn-primary text-white" @click="getSearch">Filtrar</a>
+                <a class="btn btn-secondary text-white" @click="clearSearch">Limpar</a>
             </div>
         </div>
         <div class="col-md-8 bg-white rounded p-2">
@@ -43,12 +43,17 @@
                         </div>
                     </div>
                 </div>
-                <paginate-component
-                    :total="paginate.total"
-                    :current="paginate.page"
-                    :action="getRecentPosts"
-                    @resetCurrent="paginate.page = $event"
-                />
+                <div v-if="posts.length < 1" class="col-md-12 m-2">
+                    <h3  class="text-center">Nenhum post encontrado!</h3>
+                </div>
+                <div class="col-md-12">
+                    <paginate-component
+                        :total="paginate.total"
+                        :current="paginate.page"
+                        :action="getRecentPosts"
+                        @resetCurrent="paginate.page = $event"
+                    />
+                </div>
             </div>
         </div>
     </div>
@@ -79,6 +84,17 @@
             this.getAuthors();
         },
         methods: {
+            getSearch:function(){
+                this.paginate = new paginateModel();
+               this.getRecentPosts();
+            },
+            clearSearch:function(){
+               this.search = '';
+               this.searchCategoryId='';
+               this.authorId='';
+               this.paginate = new paginateModel();
+               this.getRecentPosts();
+            },
             getRecentPosts: async function () {
                 try {
                     const resp = await axios.get(`${this.urlApi}/posts/?page=${this.paginate.page}&search=${this.search}&category_id=${this.searchCategoryId}&author_id=${this.authorId}`);

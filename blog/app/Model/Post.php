@@ -7,10 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
 
-    protected $with = ['categories'];
+    protected $with = ['categories','user'];
     protected $appends = ['urlImage','publicationDatePtBr'];
     public function categories(){
         return $this->belongsTo(\App\Model\PostCategories::class,'category_id');
+    }
+
+    public function user(){
+        return $this->belongsTo(\App\User::class);
     }
 
     public function getUrlImageAttribute()

@@ -28,7 +28,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -78,6 +78,16 @@
         </nav>
 
         <main class="py-4">
+            @auth
+                <div class="container mb-2">
+                    <div class="btn-group btn-group-lg text-center">
+                        <a class="btn btn-success text-white" href="{{url('home')}}">Home</a>
+                        <a class="btn btn-success text-white" href="{{url('post-categories')}}">Categorias</a>
+                        <a class="btn btn-success text-white" href="{{url('posts')}}">Posts</a>
+                    </div>
+                </div>
+            @endauth
+
             @yield('content')
         </main>
     </div>
