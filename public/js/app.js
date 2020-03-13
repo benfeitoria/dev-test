@@ -2379,6 +2379,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     buscar: function buscar() {
+      //console.log(this.inputValue)
       //console.log(`${this.urlModulo}?${this.parametroBusca}=${this.inputValue}`);
       window.location = "".concat(this.urlModulo, "?").concat(this.parametroBusca, "=").concat(this.inputValue);
     },

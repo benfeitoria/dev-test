@@ -7,8 +7,11 @@ Route::get('/post/{id?}', 	['as' => 'post', 'uses' => 'Web\SiteCtrl@showPost']);
 Route::get('/post/busca', 	['as' => 'post', 'uses' => 'Web\SiteCtrl@busca']);
 
 
-Auth::routes();
-Auth::routes();
+// Authentication Routes...
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
 
 // grupos de rotas da visão do sistema
 Route::group(['prefix' => 'sistema', 'as' => 'sistema', 'middleware' => 'auth'], function(){
@@ -35,5 +38,14 @@ Route::group(['prefix' => 'sistema', 'as' => 'sistema', 'middleware' => 'auth'],
 		Route::put('atualizar/{id}',        ['as' => '.atualizar', 'uses' => 'Sistema\PostCtrl@update'] );
 		//mudei a roda de excluir para Ger para poder usar a lógica do componente de DataTable
 		Route::get('excluir/{id}',       	['as' => '.excluir', 'uses' => 'Sistema\PostCtrl@destroy'] );
+	});
+
+	// rotas do Usuários (autores)
+	Route::group(['prefix' => 'user', 'as' => '.user'], function(){
+	    Route::get('/',                     ['as' => '.index', 'uses' => 'Sistema\UsuarioCtrl@index'] );
+	    Route::get('/novo',                 ['as' => '.novo', 'uses' => 'Sistema\UsuarioCtrl@create'] );
+	    Route::post('/salvar',              ['as' => '.salvar', 'uses' => 'Sistema\UsuarioCtrl@store'] );
+	    Route::get('/editar/{id}',          ['as' => '.editar', 'uses' => 'Sistema\UsuarioCtrl@edit'] );
+		Route::put('atualizar/{id}',        ['as' => '.atualizar', 'uses' => 'Sistema\UsuarioCtrl@update'] );
 	});
 });

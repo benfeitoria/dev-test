@@ -1,7 +1,7 @@
 @extends('layouts.sistema.painel')
 
 @section('titulo_card')
-Lista de usuários 
+Lista de Usuários 
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@ Lista de usuários
             <busca-simples 
                 url-modulo="{{ route('sistema.user.index') }}"
                 valor="{{ old('busca', isset($busca)? $busca : '' ) }}" 
-                parametro-busca="nome">
+                parametro-busca="name">
             </busca-simples>
         </column-component>
         <column-component sizes="3">
@@ -24,14 +24,13 @@ Lista de usuários
 
     <data-table 
         url-modulo="{{ route('sistema.user.index') }}" 
-        :columns="['id', 'nome', 'email']"
-        :object_data="{{ json_encode($categorias) }}" 
-        :acao-exclusao="true" 
+        :columns="['id', 'name', 'email']"
+        :object_data="{{ json_encode($users) }}" 
+        :acao-exclusao="false" 
         :acao-edicao="true"
         url-edicao="{{ url('sistema/user/editar') }}" 
-        url-exclusao="{{ url('sistema/user/excluir') }}"
         busca="{{ old('busca', isset($busca)? $busca : '' ) }}" 
-        parametro-busca="nome">
+        parametro-busca="name">
     </data-table>
 </card-component>
 @endsection

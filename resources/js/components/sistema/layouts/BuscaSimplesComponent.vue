@@ -42,6 +42,7 @@ export default {
   },
   methods: {
     buscar() {
+      //console.log(this.inputValue)
       //console.log(`${this.urlModulo}?${this.parametroBusca}=${this.inputValue}`);
       window.location = `${this.urlModulo}?${this.parametroBusca}=${this.inputValue}`;
     },
