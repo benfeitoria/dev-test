@@ -1,0 +1,39 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+//adminlte
+@import '~admin-lte/dist/css/adminlte.css';
+@media (min-width: 992px){
+	.sidebar-mini.sidebar-collapse .main-sidebar:hover {
+	    transition-timing-function: ease-in;
+	    transition: 0.2s;
+	}
+}
+
+@media (min-width: 992px){
+	.sidebar-mini.sidebar-collapse .main-sidebar, .sidebar-mini.sidebar-collapse .main-sidebar:before {
+	    transition-timing-function: ease-out;
+	    transition: 0.25s;
+	    transform: translateY(0);
+	}
+}
+
+.main-sidebar{
+	transition-timing-function: ease-out;
+    transition: 0.25s;
+    transform: translateY(0);
+}
+
+#index .img_destaque_div{
+	height: 225px; 
+	width: 100%; 
+	display: block;
+	background-position: center;
+    background-size: cover;
+}
