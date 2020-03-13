@@ -20,4 +20,4 @@ window.axios = require('axios');
 /* seta o filtro de ajax no axios */
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-window.axios.defaults.baseURL = "http://localhost/blog-teste/public/";
+window.axios.defaults.baseURL = "http://127.0.0.1:8000/blog-teste/public/";
