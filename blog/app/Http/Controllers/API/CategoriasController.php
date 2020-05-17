@@ -19,8 +19,19 @@ class CategoriasController extends Controller
 
     public function index()
     {
-        $categorias = $this->categoriaRepository->getAll();
+        $categorias = null;
 
-        return json_encode($categorias);
+        try {
+            $categorias = $this->categoriaRepository->getAll();
+        } catch(Exception $e) {
+            return response(json_encode($e->getMessage()), 500);
+        }
+
+
+        if ( empty($categorias) || $categorias->isEmpty()) {
+            return response(json_encode((object) ['msg'=> "Não há categorias cadastradas"]), 404);
+        }
+
+        return response()->json($categorias);
     }
 }
