@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use Illuminate\Support\Facades\DB;
 use App\Model\Categoria as CategoriaModel;
+use App\Exceptions\NotAllowedException;
 
 class Categoria
 {
@@ -18,9 +19,15 @@ class Categoria
 
     public function delete(int $id)
     {
-      return $categoria = DB::table('categorias')
+      if ($this->hasPostagem($id)) {
+        throw new NotAllowedException("Há postagens vinculadas a esta categoria, exclua-as primeiro");
+      }
+
+      $res = $categoria = DB::table('categorias')
                               ->where('id', '=', $id)
                               ->delete();
+
+      return $res;
     }
 
     public function create(string $descricao)
@@ -30,5 +37,14 @@ class Categoria
       $categoria->save();
 
       return $categoria;
+    }
+
+    private function hasPostagem(int $id)
+    {
+      $categoria = DB::table('postagens')
+                        ->where('categoria_id', '=', $id)
+                        ->get();
+
+      return (empty($categoria) || $categoria->isEmpty()) ? false : true;
     }
 }

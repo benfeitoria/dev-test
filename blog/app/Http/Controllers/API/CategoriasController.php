@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Repositories\Categoria as CategoriaRepository;
 use App\Exceptions\BadRequestException;
+use App\Exceptions\NotAllowedException;
 
 use \Exception;
 
@@ -30,9 +31,11 @@ class CategoriasController extends Controller
             return response(json_encode($e->getMessage()), 500);
         }
 
-
         if ( empty($categorias) || $categorias->isEmpty()) {
-            return response(json_encode((object) ['msg'=> "Não há categorias cadastradas"]), 404);
+
+            return response(json_encode((object) [
+                'msg'=> "Não há categorias cadastradas"
+            ]), 404);
         }
 
         return response()->json($categorias);
@@ -47,9 +50,14 @@ class CategoriasController extends Controller
             $res = $this->categoriaRepository->delete($id);
 
             if ($res == 0) {
-                return response(json_encode((object)['msg' => "Não foi encontrada nenhuma categoria com este ID"]), 400);
+
+                return response(json_encode((object) [
+                    'msg' => "Não foi encontrada nenhuma categoria com este ID"
+                ]), 400);
             }
             
+        } catch (NotAllowedException $e) {
+            return response(json_encode($e->getMessage()), 406);
         } catch (Exception $e) {
             return response(json_encode($e->getMessage()), 500);
         }
