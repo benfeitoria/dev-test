@@ -1,0 +1,25 @@
+div#administrar-postagens,
+div#administrar-categorias,
+{
+
+  max-width: 80vw;
+  margin: 0 auto;
+
+  div.md-card {
+
+    padding: 10px 30px;
+
+    div.md-toolbar {
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    div.md-content {
+
+      margin: 0 auto;
+    }
+  }
+}

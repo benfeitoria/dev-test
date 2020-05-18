@@ -27,8 +27,12 @@ class HomeController extends Controller
         $autorId = Auth::id();
 
         return view('home', [ 
-            'autorId' => $autorId,
-            'usuario' => Auth::user()->name
+            'autorId' => $autorId
         ]);
+    }
+
+    public function categorias()
+    {
+        return view('categorias');
     }
 }

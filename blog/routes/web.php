@@ -20,5 +20,5 @@ Route::get('/postagem/{id}', function ($id) {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/home',       'HomeController@index')->name('home');
+Route::get('/categorias', 'HomeController@categorias')->name('categorias');
