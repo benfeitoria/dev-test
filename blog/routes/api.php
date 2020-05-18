@@ -18,8 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('categorias', 'API\\CategoriasController@index');
+Route::get('categorias',         'API\\CategoriasController@index');
 Route::delete('categorias/{id}', 'API\\CategoriasController@delete')->middleware('auth:api');
-Route::post('categorias', 'API\\CategoriasController@create')->middleware('auth:api');
+Route::post('categorias',        'API\\CategoriasController@create')->middleware('auth:api');
 
-
+Route::get('postagens',         'API\\PostagensController@index');
+Route::delete('postagens/{id}', 'API\\PostagensController@delete')->middleware('auth:api');
+Route::post('postagens',        'API\\PostagensController@create')->middleware('auth:api');
