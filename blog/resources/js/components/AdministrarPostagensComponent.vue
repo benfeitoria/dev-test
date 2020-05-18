@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div id="administrar-postagens">
     <md-table md-card>
       <md-table-toolbar>
-        <h1 class="md-title">Postagens - {{ usuario }}</h1>
+        <h1 class="md-title">Postagens</h1>
       </md-table-toolbar>
 
       <md-table-row>
@@ -18,7 +18,10 @@
         <md-table-cell>{{ item.titulo }}</md-table-cell>
         <md-table-cell>{{ item.created_at | formatodata }}</md-table-cell>
         <md-table-cell>{{ item.categoria_descricao }}</md-table-cell>
-        <md-table-cell></md-table-cell>
+        <md-table-cell>
+          <md-icon>add</md-icon>
+          <md-icon>remove</md-icon>
+        </md-table-cell>
       </md-table-row>
 
     </md-table>
@@ -29,8 +32,7 @@
   export default {
     name: 'TableCard',
     props: [
-      'autor_id',
-      'usuario'
+      'autor_id'
     ],
     data() {
         return { 
@@ -46,8 +48,6 @@
         }
     },
     mounted() {
-      console.log(this.usuario);
-
       let url  = '/api/postagens';
           url += '?autor='+ this.autor_id;
 
