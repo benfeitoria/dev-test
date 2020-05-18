@@ -9,6 +9,7 @@ then
 fi
 
 if [[ ! -d "public" ]]
+then
   mkdir public
   ln -s blog/public/ public
 fi
