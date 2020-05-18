@@ -1,1 +1,14 @@
-//
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Pagina de listagem das postagens
+@import 'postagens';
+
+// Pagina de detalhamento da postagem
+@import 'postagem_detalhe';

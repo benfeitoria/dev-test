@@ -1,0 +1,26 @@
+div#postagem-detalhe {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 80vw;
+  margin: 0 auto;
+
+  div.md-card {
+
+    width: inherit;
+    
+    div.md-card-content {
+
+      div {
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        font-weight: bold;
+        margin: 20px 0;
+      }
+    }
+  }
+}
