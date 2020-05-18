@@ -23,5 +23,6 @@ Route::delete('categorias/{id}', 'API\\CategoriasController@delete')->middleware
 Route::post('categorias',        'API\\CategoriasController@create')->middleware('auth:api');
 
 Route::get('postagens',         'API\\PostagensController@index');
+Route::get('postagem/{id}',     'API\\PostagensController@get');
 Route::delete('postagens/{id}', 'API\\PostagensController@delete')->middleware('auth:api');
 Route::post('postagens',        'API\\PostagensController@create')->middleware('auth:api');
