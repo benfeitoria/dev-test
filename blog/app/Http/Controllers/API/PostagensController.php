@@ -20,24 +20,50 @@ class PostagensController extends Controller
         $this->postagemRepository = $postagemRepository;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $postagens = null;
+        $postagens   = null;
+        $categoriaId = $request->query('categoria', null);
+        $autorId     = $request->query('autor', null);
 
-          try {
-              $postagens = $this->postagemRepository->getAll();
-          } catch(Exception $e) {
-              return response(json_encode($e->getMessage()), 500);
-          }
+        $this->postagemRepository->categoriaId($categoriaId);
+        $this->postagemRepository->autorId($autorId);
+
+        try {
+            $postagens = $this->postagemRepository->getAll();
+        } catch(Exception $e) {
+            return response(json_encode($e->getMessage()), 500);
+        }
 
 
-          if ( empty($postagens) || $postagens->isEmpty()) {
-              return response(json_encode((object) [
-                'msg' => "Não há postagens cadastradas"
-              ]), 404);
-          }
+        if ( empty($postagens) || $postagens->isEmpty()) {
+            return response(json_encode((object) [
+              'msg' => "Não há postagens cadastradas para esse filtro"
+            ]), 404);
+        }
 
-          return response()->json($postagens);
+        return response()->json($postagens);
+    }
+
+    public function get(Request $request)
+    {
+        $id       = $request->id;
+        $postagem = null;
+
+        try {
+            $postagem = $this->postagemRepository->get($id);
+        } catch(Exception $e) {
+            return response(json_encode($e->getMessage()), 500);
+        }
+
+
+        if ( empty($postagem) || $postagem->isEmpty()) {
+            return response(json_encode((object) [
+              'msg' => "Não há postagens cadastrada para esse código"
+            ]), 404);
+        }
+
+        return response()->json($postagem);
     }
 
     public function delete(Request $request)

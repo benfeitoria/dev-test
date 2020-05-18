@@ -7,11 +7,66 @@ use App\Model\Postagem as PostagemModel;
 
 class Postagem
 {
+    private $categoriaId;
+    private $autorId;
+
+    public function categoriaId($value = null)
+    {
+      if (!empty($value)) {
+        $this->categoriaId = $value;
+        return $this;
+      }
+      
+      return $this->categoriaId;
+    }
+
+    public function autorId($value = null)
+    {
+      if (!empty($value)) {
+        $this->autorId = $value;
+        return $this;
+      }
+
+      return $this->autorId;
+    }
+
     public function getAll()
     {
         $postagens = DB::table('postagens')
                           ->join('users', 'users.id', '=', 'postagens.autor_id')
+                          ->join('categorias', 'categorias.id', '=', 'postagens.categoria_id');
+
+        if (!empty($this->categoriaId)) {
+          $postagens = $postagens->where('postagens.categoria_id', '=', $this->categoriaId);
+        }
+
+        if (!empty($this->autorId)) {
+          $postagens = $postagens->where('postagens.autor_id', '=', $this->autorId);
+        }
+
+        $postagens = $postagens->select(
+                                  'postagens.id',
+                                  'postagens.imagem',
+                                  'postagens.titulo',
+                                  'postagens.texto',
+                                  'postagens.created_at',
+                                  'postagens.updated_at',
+                                  'users.id as autor_id',
+                                  'users.name as autor_name',
+                                  'categorias.id as categoria_id',
+                                  'categorias.descricao as categoria_descricao'
+                                )
+                                ->get();
+
+        return $postagens;
+    }
+
+    public function get(int $id)
+    {
+        $postagens = DB::table('postagens')
+                          ->join('users', 'users.id', '=', 'postagens.autor_id')
                           ->join('categorias', 'categorias.id', '=', 'postagens.categoria_id')
+                          ->where('postagens.id', '=', $id)
                           ->select(
                             'postagens.id',
                             'postagens.imagem',
