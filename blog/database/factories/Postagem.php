@@ -17,8 +17,8 @@ LOREM_IPSUM;
 
 $factory->define(Postagem::class, function (Faker $faker) use ($texto, $createdAt) {
     return [
-        'imagem'       => 'https://picsum.photos/2000/1500/?random=1',
-        'titulo'       => Str::random(10) .' '. Str::random(2) .' '. Str::random(10),
+        'imagem'       => 'https://picsum.photos/2000/1500/?random='. $faker->numberBetween(1, 5),
+        'titulo'       => $faker->word,
         'texto'        => $texto,
         'created_at'   => $createdAt,
         'categoria_id' => $faker->numberBetween(1, 5),
