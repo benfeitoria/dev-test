@@ -49,27 +49,35 @@
     methods: {
       clickAdd: function () {
 
-        alert('not yet')
+        return alert('not yet')
 
         axios
           .get(url)
-          .then(data => this.items = data.data)
+          .then(data => this.items.push(data.data))
           .catch(error => {
               console.log(error)
               this.errored = true
+              alert(error);
           })
           .finally(() => this.loading = false)
-
       },
       clickRemove(id) {
+
+        if (!confirm('Tem certeza? Esta ação não poderá ser desfeita')) {
+          return;
+        }
         
         axios
           .delete('/api/categorias/'+ id)
-          .then(this.items = this.items.slice(0, -1))
+          .then(response => this.items.forEach((item, ind) => {
+            if (item.id == id) {
+              return this.items = (new Array()).concat(this.items.slice(0, ind), this.items.slice(ind + 1))
+            }
+          }))
           .catch(error => {
-              alert(error);
               console.log(error)
               this.errored = true
+              alert(error);
           })
           .finally(() => this.loading = false)
       }
