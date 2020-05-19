@@ -2,7 +2,8 @@
   <div id="administrar-postagens">
     <md-table md-card>
       <md-table-toolbar>
-        <h1 class="md-title">Postagens</h1>
+        <div><h1 class="md-title">Postagens</h1></div>
+        <div id="button-new"><md-button class="modal-defult-button" v-on:click.native="clickAdd">NOVA</md-button></div>
       </md-table-toolbar>
 
       <md-table-row>
@@ -19,7 +20,7 @@
         <md-table-cell>{{ item.created_at | formatodata }}</md-table-cell>
         <md-table-cell>{{ item.categoria_descricao }}</md-table-cell>
         <md-table-cell>
-          <md-icon v-on:click.native="clickAdd(item.id)">add</md-icon>
+          <md-icon v-on:click.native="clickAdd">add</md-icon>
           <md-icon v-on:click.native="clickRemove(item.id)">remove</md-icon>
         </md-table-cell>
       </md-table-row>
@@ -48,6 +49,7 @@
         }
     },
     mounted() {
+
       let url  = '/api/postagens';
           url += '?autor='+ this.autor_id;
 
@@ -62,25 +64,14 @@
     },
     methods: {
       clickAdd: function () {
-
-        return alert('not yet')
-
-        axios
-          .get(url)
-          .then(data => this.items.push(data.data))
-          .catch(error => {
-              console.log(error)
-              this.errored = true
-              alert(error);
-          })
-          .finally(() => this.loading = false)
+        return this.$parent.showModal = true;
       },
       clickRemove(id) {
 
         if (!confirm('Tem certeza? Esta ação não poderá ser desfeita')) {
           return;
         }
-        
+
         axios
           .delete('/api/postagens/'+ id)
           .then(response => this.items.forEach((item, ind) => {
@@ -98,3 +89,25 @@
     }
   }
 </script>
+
+
+<style type="text/css">
+div#administrar-postagens {
+  max-width: 80vw;
+  margin: 0 auto;
+}
+
+div#administrar-postagens div.md-card {
+  padding: 10px 30px;
+}
+
+div#administrar-postagens div.md-card div.md-toolbar div#button-new {
+
+  position: absolute;
+  right: 0;
+}
+
+div#administrar-postagens div.md-card div.md-content {
+  margin: 0 auto;
+}
+</style>
