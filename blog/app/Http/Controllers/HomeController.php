@@ -26,13 +26,13 @@ class HomeController extends Controller
     {
         $autorId = Auth::id();
 
-        return view('home', [ 
+        return view('administrar-postagens', [ 
             'autorId' => $autorId
         ]);
     }
 
     public function categorias()
     {
-        return view('categorias');
+        return view('administrar-categorias');
     }
 }

@@ -84,7 +84,8 @@ class CategoriasController extends Controller
         }
 
         return response()->json((object) [
-            'id' => $categoria->id
+            'id' => $categoria->id,
+            'descricao' => $categoria->descricao
         ]);
     }
 }

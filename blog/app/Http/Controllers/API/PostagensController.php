@@ -130,7 +130,16 @@ class PostagensController extends Controller
         }
 
         return response()->json((object) [
-            'id' => $postagem->id
+            'id'                  => $postagem->id,
+            'imagem'              => $postagem->imagem,
+            'titulo'              => $postagem->titulo,
+            'texto'               => $postagem->texto,
+            'created_at'          => $postagem->created_at,
+            'updated_at'          => $postagem->updated_at,
+            'autor_id'            => $postagem->autor_id,
+            'autor_name'          => $postagem->autor_name,
+            'categoria_id'        => $postagem->categoria_id,
+            'categoria_descricao' => $postagem->categoria_descricao
         ]);
     }
 }
