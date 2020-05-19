@@ -19,8 +19,8 @@
         <md-table-cell>{{ item.created_at | formatodata }}</md-table-cell>
         <md-table-cell>{{ item.categoria_descricao }}</md-table-cell>
         <md-table-cell>
-          <md-icon>add</md-icon>
-          <md-icon>remove</md-icon>
+          <md-icon v-on:click.native="clickAdd(item.id)">add</md-icon>
+          <md-icon v-on:click.native="clickRemove(item.id)">remove</md-icon>
         </md-table-cell>
       </md-table-row>
 
@@ -59,6 +59,42 @@
             this.errored = true
         })
         .finally(() => this.loading = false)
+    },
+    methods: {
+      clickAdd: function () {
+
+        return alert('not yet')
+
+        axios
+          .get(url)
+          .then(data => this.items.push(data.data))
+          .catch(error => {
+              console.log(error)
+              this.errored = true
+              alert(error);
+          })
+          .finally(() => this.loading = false)
+      },
+      clickRemove(id) {
+
+        if (!confirm('Tem certeza? Esta ação não poderá ser desfeita')) {
+          return;
+        }
+        
+        axios
+          .delete('/api/postagens/'+ id)
+          .then(response => this.items.forEach((item, ind) => {
+            if (item.id == id) {
+              return this.items = (new Array()).concat(this.items.slice(0, ind), this.items.slice(ind + 1))
+            }
+          }))
+          .catch(error => {
+              console.log(error)
+              this.errored = true
+              alert(error);
+          })
+          .finally(() => this.loading = false)
+      }
     }
   }
 </script>
