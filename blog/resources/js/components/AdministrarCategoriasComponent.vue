@@ -15,8 +15,8 @@
         <md-table-cell md-numeric>{{ item.id }}</md-table-cell>
         <md-table-cell>{{ item.descricao }}</md-table-cell>
         <md-table-cell>
-          <md-icon>add</md-icon>
-          <md-icon>remove</md-icon>
+          <md-icon v-on:click.native="clickAdd(item.id)">add</md-icon>
+          <md-icon v-on:click.native="clickRemove(item.id)">remove</md-icon>
         </md-table-cell>
       </md-table-row>
 
@@ -45,6 +45,34 @@
             this.errored = true
         })
         .finally(() => this.loading = false)
+    },
+    methods: {
+      clickAdd: function () {
+
+        alert('not yet')
+
+        axios
+          .get(url)
+          .then(data => this.items = data.data)
+          .catch(error => {
+              console.log(error)
+              this.errored = true
+          })
+          .finally(() => this.loading = false)
+
+      },
+      clickRemove(id) {
+        
+        axios
+          .delete('/api/categorias/'+ id)
+          .then(this.items = this.items.slice(0, -1))
+          .catch(error => {
+              alert(error);
+              console.log(error)
+              this.errored = true
+          })
+          .finally(() => this.loading = false)
+      }
     }
   }
 </script>
