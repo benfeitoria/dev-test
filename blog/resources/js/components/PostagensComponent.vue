@@ -12,7 +12,7 @@
 
       <md-card-actions>
         <a v-bind:href="item.link">
-            <md-button>Ler</md-button>        
+            <md-button>Ler</md-button>
         </a>
       </md-card-actions>
 
@@ -73,10 +73,6 @@
 </script>
 
 <style lang="scss" scoped>
-  .card-expansion {
-    height: 480px;
-  }
-
   .md-card {
     width: 320px;
     margin: 4px;
