@@ -44,6 +44,12 @@
           .then(data => {
             this.postagem = data.data;
             app.showModal = false;
+            app.$children.forEach(children => {
+
+              if (children.$options._componentTag == 'administrar-postagens-component') {
+                children.items.push(this.postagem)
+              }
+            })
           })
           .catch(error => {
               console.log(error)

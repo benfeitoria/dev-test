@@ -37,7 +37,7 @@
     ],
     data() {
         return { 
-            items: null,
+            items: [],
             loading: true, 
             errored: false
         }
@@ -89,7 +89,6 @@
     }
   }
 </script>
-
 
 <style type="text/css">
 div#administrar-postagens {
