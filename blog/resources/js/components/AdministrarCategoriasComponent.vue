@@ -2,7 +2,8 @@
   <div id="administrar-categorias">
     <md-table md-card>
       <md-table-toolbar>
-        <h1 class="md-title">Categorias</h1>
+        <div><h1 class="md-title">Categorias</h1></div>
+        <div id="button-new"><md-button class="modal-defult-button" v-on:click.native="clickAdd">NOVA</md-button></div>
       </md-table-toolbar>
 
       <md-table-row>
@@ -48,18 +49,7 @@
     },
     methods: {
       clickAdd: function () {
-
-        return alert('not yet')
-
-        axios
-          .get(url)
-          .then(data => this.items.push(data.data))
-          .catch(error => {
-              console.log(error)
-              this.errored = true
-              alert(error);
-          })
-          .finally(() => this.loading = false)
+        return this.$parent.showModal = true;
       },
       clickRemove(id) {
 
@@ -84,3 +74,24 @@
     }
   }
 </script>
+
+<style type="text/css">
+div#administrar-categorias {
+  max-width: 80vw;
+  margin: 0 auto;
+}
+
+div#administrar-categorias div.md-card {
+  padding: 10px 30px;
+}
+
+div#administrar-categorias div.md-card div.md-toolbar div#button-new {
+
+  position: absolute;
+  right: 0;
+}
+
+div#administrar-categorias div.md-card div.md-content {
+  margin: 0 auto;
+}
+</style>
