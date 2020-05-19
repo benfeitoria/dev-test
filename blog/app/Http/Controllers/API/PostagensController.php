@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Repositories\Postagem as PostagemRepository;
 use App\Exceptions\BadRequestException;
@@ -85,5 +86,51 @@ class PostagensController extends Controller
         }
 
         response(null, 200);
+    }
+
+    public function create(Request $request)
+    {
+        $imagem       = $request->input('imagem', null);
+        $titulo       = $request->input('titulo', null);
+        $texto        = $request->input('texto', null);
+        $categoria_id = $request->input('categoria_id', null);
+
+        try {
+
+            if (empty($imagem)) {
+                throw new BadRequestException('Informe a imagem da postagem');
+            }
+
+            if (empty($titulo)) {
+                throw new BadRequestException('Informe o titulo da postagem');
+            }
+
+            if (empty($texto)) {
+                throw new BadRequestException('Informe o texto da postagem');
+            }
+
+            if (empty($categoria_id)) {
+                throw new BadRequestException('Informe a categoria_id da postagem');
+            }
+
+            $autor_id = Auth::id();
+
+            $postagem = $this->postagemRepository->create(
+                $imagem,
+                $titulo,
+                $texto,
+                $autor_id,
+                $categoria_id
+            );
+            
+        } catch (BadRequestException $e) {
+            return response(json_encode( (object) ['msg' => $e->getMessage()]), 400);
+        } catch (Exception $e) {
+            return response(json_encode($e->getMessage()), 500);
+        }
+
+        return response()->json((object) [
+            'id' => $postagem->id
+        ]);
     }
 }

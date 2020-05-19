@@ -95,10 +95,11 @@ class Postagem
       string $imagem,
       string $titulo,
       string $texto,
-      string $created_at,
       int $autor_id,
       int $categoria_id
     ) {
+
+      $created_at = date('Y-m-d H:i:s');
 
       $postagem = new PostagemModel();
       $postagem->imagem     = $imagem;
