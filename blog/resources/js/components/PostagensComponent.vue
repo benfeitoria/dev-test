@@ -12,7 +12,7 @@
 
       <md-card-actions>
         <a v-bind:href="item.link">
-            <md-button>Ver mais</md-button>        
+            <md-button>Ler</md-button>        
         </a>
       </md-card-actions>
 
