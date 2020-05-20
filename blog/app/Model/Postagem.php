@@ -12,4 +12,21 @@ class Postagem extends Model
      * @var string
      */
     protected $table = 'postagens';
+
+    /**
+     * Get the categoria that owns the postagem.
+     */
+    public function categoria()
+    {
+        return $this->belongsTo('App\Model\Categoria');
+    }
+
+
+    /**
+     * Get the autor that owns the postagem.
+     */
+    public function autor()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

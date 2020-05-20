@@ -102,13 +102,16 @@ class Postagem
       $created_at = date('Y-m-d H:i:s');
 
       $postagem = new PostagemModel();
-      $postagem->imagem     = $imagem;
-      $postagem->titulo     = $titulo;
-      $postagem->texto      = $texto;
-      $postagem->created_at = $created_at;
+      $postagem->imagem       = $imagem;
+      $postagem->titulo       = $titulo;
+      $postagem->texto        = $texto;
+      $postagem->created_at   = $created_at;
       $postagem->autor_id     = $autor_id;
       $postagem->categoria_id = $categoria_id;
       $postagem->save();
+
+      $postagem->autor_name          = $postagem->autor->name;
+      $postagem->categoria_descricao = $postagem->categoria->descricao;
 
       return $postagem;
     }
