@@ -31,7 +31,7 @@ docker exec -it laradock_workspace_1 bash
 Dentro do container do workspace
 ```shell
 cd blog
-composer install
+composer install --no-dev
 npm install
 npm run prod
 ```
@@ -60,6 +60,14 @@ Nesse arquivo anterior edite as diretivas abaixo:
 - DB_USERNAME=default
 - DB_PASSWORD=secret
 
+Pode ser necessário que seja rodado o comando abaixo para gerar a chave do Laravel, basta verificar se a diretiva APP_KEY está vazia, se sim deve rodar o comando, rodar o comando dentro do container (workspace ou fpm)
+```shell
+docker exec -it laradock_workspace_1 bash
+
+cd blog
+php artisan key:generate
+```
+
 #### Rodando migrations e seeds na base
 Entrar no container do php-fpm para rodar migrations
 ```shell
@@ -73,8 +81,10 @@ php artisan migrate
 
 # Seeding 
 php artisan db:seed --class Categorias
-php artisan db:seed --class Users
-php artisan db:seed --class Postagens
+
+# Caso tenha rodado o composer sem o --no-dev será possível rodar os comandos abaixo, caso contrário não será possível por dependencias do faker
+php artisan db:seed --class User
+php artisan db:seed --class Postagem
 ```
 
 ## Usando
