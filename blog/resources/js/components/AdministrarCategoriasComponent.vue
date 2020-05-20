@@ -30,7 +30,7 @@
     name: 'TableCard',
     data() {
         return { 
-            items: null,
+            items: [],
             loading: true, 
             errored: false
         }
