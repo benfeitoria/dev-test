@@ -14,6 +14,10 @@ then
   ln -s blog/public/ public
 fi
 
+if [[ ! -f "blog/.env" ]]
+  cp blog/.env.example blog/.env
+fi
+
 sudo chown -R $(users):$(users) blog/*
 
 cd laradock

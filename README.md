@@ -49,7 +49,7 @@ CREATE database blog;
 #### Configurando projeto
 Configurar o arquivo .env do projeto, renomeie o arquivo .env.example na pasta blog para .env
 ```shell
-mv blog/.env.example blog/.env
+cp blog/.env.example blog/.env
 ```
 Nesse arquivo anterior edite as diretivas abaixo:
 - APP_NAME=BLOG
