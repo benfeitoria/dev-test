@@ -3,7 +3,7 @@
 if [[ ! -d "laradock" ]]
 then
   git clone https://github.com/Laradock/laradock.git
-  cp env-example .env
+  cp laradock/env-example laradock/.env
 
   ## Criar a base de dados no container do postgres
 fi
