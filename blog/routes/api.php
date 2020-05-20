@@ -19,10 +19,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('categorias',         'API\\CategoriasController@index');
-Route::delete('categorias/{id}', 'API\\CategoriasController@delete'); //->middleware('auth:api');
-Route::post('categorias',        'API\\CategoriasController@create'); //->middleware('auth:api');
+Route::delete('categorias/{id}', 'API\\CategoriasController@delete');
+Route::post('categorias',        'API\\CategoriasController@create');
 
 Route::get('postagens',         'API\\PostagensController@index');
 Route::get('postagem/{id}',     'API\\PostagensController@get');
-Route::delete('postagens/{id}', 'API\\PostagensController@delete'); //->middleware('auth:api');
-Route::post('postagem',         'API\\PostagensController@create'); //->middleware('auth:api');
+Route::delete('postagens/{id}', 'API\\PostagensController@delete');
+Route::post('postagem',         'API\\PostagensController@create');
