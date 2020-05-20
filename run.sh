@@ -15,6 +15,7 @@ then
 fi
 
 if [[ ! -f "blog/.env" ]]
+then
   cp blog/.env.example blog/.env
 fi
 
