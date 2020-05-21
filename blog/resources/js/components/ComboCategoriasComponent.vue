@@ -30,3 +30,9 @@
     },
   }
 </script>
+
+<style type="text/css">
+  body > div.md-select-menu.md-menu-content-bottom-start {
+    z-index: 10000;
+  }
+</style>
