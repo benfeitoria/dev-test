@@ -1,0 +1,23 @@
+div#postagens {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 80vw;
+  margin: 0 auto;
+
+  div {
+
+    div.md-card {
+
+      div.md-card-header {
+      
+        div.md-card-title {
+
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
