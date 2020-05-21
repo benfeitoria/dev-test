@@ -87,15 +87,5 @@ php artisan db:seed --class User
 php artisan db:seed --class Postagem
 ```
 
-#### Passport para autenticação da API
-```shell
-docker exec -it laradock_php-fpm_1 bash
-```
-Dentro do container 
-```shell
-cd blog
-php artisan passport:keys
-```
-
 ## Usando
 http://localhost
