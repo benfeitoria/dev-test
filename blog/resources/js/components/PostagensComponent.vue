@@ -79,4 +79,9 @@
     display: inline-block;
     vertical-align: top;
   }
+
+  .md-card .md-card-media > img {
+    width: 320px;
+    height: 256px;
+  }
 </style>
