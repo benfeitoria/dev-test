@@ -30,7 +30,7 @@ class CategoriasController extends Controller
         try {
             $categorias = $this->categoriaRepository->getAll();
         } catch(Exception $e) {
-            return response(json_encode($e->getMessage()), 500);
+            return response(json_encode( (object) ['msg' => $e->getMessage()]), 500);
         }
 
         if ( empty($categorias) || $categorias->isEmpty()) {
@@ -59,9 +59,9 @@ class CategoriasController extends Controller
             }
             
         } catch (NotAllowedException $e) {
-            return response(json_encode($e->getMessage()), 406);
+            return response(json_encode( (object) ['msg' => $e->getMessage()]), 406);
         } catch (Exception $e) {
-            return response(json_encode($e->getMessage()), 500);
+            return response(json_encode( (object) ['msg' => $e->getMessage()]), 500);
         }
 
         response(null, 200);
@@ -82,7 +82,7 @@ class CategoriasController extends Controller
         } catch (BadRequestException $e) {
             return response(json_encode( (object) ['msg' => $e->getMessage()]), 400);
         } catch (Exception $e) {
-            return response(json_encode($e->getMessage()), 500);
+            return response(json_encode( (object) ['msg' => $e->getMessage()]), 500);
         }
 
         return response()->json((object) [

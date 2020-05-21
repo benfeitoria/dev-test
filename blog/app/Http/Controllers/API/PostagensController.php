@@ -56,7 +56,7 @@ class PostagensController extends Controller
         try {
             $postagem = $this->postagemRepository->get($id);
         } catch(Exception $e) {
-            return response(json_encode($e->getMessage()), 500);
+            return response(json_encode( (object) ['msg' => $e->getMessage()]), 500);
         }
 
 
@@ -84,7 +84,7 @@ class PostagensController extends Controller
             }
             
         } catch (Exception $e) {
-            return response(json_encode($e->getMessage()), 500);
+            return response(json_encode( (object) ['msg' => $e->getMessage()]), 500);
         }
 
         response(null, 200);
@@ -131,7 +131,7 @@ class PostagensController extends Controller
         } catch (BadRequestException $e) {
             return response(json_encode( (object) ['msg' => $e->getMessage()]), 400);
         } catch (Exception $e) {
-            return response(json_encode($e->getMessage()), 500);
+            return response(json_encode( (object) ['msg' => $e->getMessage()]), 500);
         }
 
         return response()->json((object) [
