@@ -18,7 +18,7 @@ class CategoriasController extends Controller
     public function __construct(
         CategoriaRepository $categoriaRepository
     ) {
-        $this->middleware('auth:api', ['except' => ['index']]);
+        // $this->middleware('auth:api', ['except' => ['index']]);
 
         $this->categoriaRepository = $categoriaRepository;
     }

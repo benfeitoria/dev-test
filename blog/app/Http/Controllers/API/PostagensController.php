@@ -18,7 +18,7 @@ class PostagensController extends Controller
     public function __construct(
         PostagemRepository $postagemRepository
     ) {
-        $this->middleware('auth:api', ['except' => ['index', 'get']]);
+        // $this->middleware('auth:api', ['except' => ['index', 'get']]);
 
         $this->postagemRepository = $postagemRepository;
     }
