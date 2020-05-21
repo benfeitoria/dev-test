@@ -13,10 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'Postagens@get');
-Route::get('/postagem/{id}', function ($id) {
-    return view('postagem', [ 'id' => $id ]);
-});
+Route::get('/', 'Postagens@index');
+Route::get('/postagem/{id}', 'Postagens@get');
 
 Auth::routes();
 
