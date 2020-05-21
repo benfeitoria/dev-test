@@ -95,6 +95,7 @@ class PostagensController extends Controller
         $imagem       = $request->input('imagem', null);
         $titulo       = $request->input('titulo', null);
         $texto        = $request->input('texto', null);
+        $autor_id     = $request->input('autor_id', null);
         $categoria_id = $request->input('categoria_id', null);
 
         try {
@@ -112,10 +113,12 @@ class PostagensController extends Controller
             }
 
             if (empty($categoria_id)) {
-                throw new BadRequestException('Informe a categoria_id da postagem');
+                throw new BadRequestException('Informe a categoria da postagem');
             }
 
-            $autor_id = Auth::id();
+            if (empty($autor_id)) {
+                throw new BadRequestException('Informe o autor da postagem');
+            }
 
             $postagem = $this->postagemRepository->create(
                 $imagem,

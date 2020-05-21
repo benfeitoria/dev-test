@@ -22,6 +22,9 @@
 <script>
   export default {
     name: 'TextFields',
+    props: [
+      'autor_id'
+    ],
     data: () => ({
       url: null,
       titulo: null,
@@ -40,6 +43,7 @@
             titulo       : this.titulo,
             texto        : this.texto,
             categoria_id : this.categoria_id,
+            autor_id     : this.autor_id,
           })
           .then(data => {
             this.postagem = data.data;
