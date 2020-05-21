@@ -38,8 +38,24 @@
     mounted() {
       let url  = '/api/categorias';
 
-      axios
-        .get(url)
+      axios({
+          url: url,
+          method: 'GET',
+          transformResponse: [function (data) {
+            
+            try {
+
+              let res = JSON.parse(data);
+
+              if (res.msg) alert(res.msg)
+              
+              return res;
+
+            } catch (e) {
+              console.error(e);
+            }
+          }],
+        })
         .then(data => this.items = data.data)
         .catch(error => {
             console.log(error)
@@ -57,8 +73,24 @@
           return;
         }
         
-        axios
-          .delete('/api/categorias/'+ id)
+        axios({
+            url: '/api/categorias/'+ id,
+            method: 'delete',
+            transformResponse: [function (data) {
+              
+              try {
+
+                let res = JSON.parse(data);
+
+                if (res.msg) alert(res.msg)
+                
+                return res;
+
+              } catch (e) {
+                console.error(e);
+              }
+            }],
+          })
           .then(response => this.items.forEach((item, ind) => {
             if (item.id == id) {
               return this.items = (new Array()).concat(this.items.slice(0, ind), this.items.slice(ind + 1))
@@ -67,7 +99,6 @@
           .catch(error => {
               console.log(error)
               this.errored = true
-              alert(error);
           })
           .finally(() => this.loading = false)
       }

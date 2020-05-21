@@ -37,16 +37,33 @@
         this.categoria_id = value;
       },
       salvar(app) {
-        axios
-          .post('/api/postagem', {
-            imagem       : this.url,
-            titulo       : this.titulo,
-            texto        : this.texto,
-            categoria_id : this.categoria_id,
-            autor_id     : this.autor_id,
+        axios({
+            url: '/api/postagem',
+            method: 'post',
+            data: {
+              imagem       : this.url,
+              titulo       : this.titulo,
+              texto        : this.texto,
+              categoria_id : this.categoria_id,
+              autor_id     : this.autor_id,
+            },
+            transformResponse: [function (data) {
+              
+              try {
+
+                let res = JSON.parse(data);
+
+                if (res.msg) alert(res.msg)
+                
+                return res;
+
+              } catch (e) {
+                console.error(e);
+              }
+            }],
           })
-          .then(data => {
-            this.postagem = data.data;
+          .then(response => {
+            this.postagem = response.data;
             app.showModal = false;
             app.$children.forEach(children => {
 
@@ -56,8 +73,7 @@
             })
           })
           .catch(error => {
-              console.log(error)
-              alert(error);
+              console.error(error)
           })
       }
     }

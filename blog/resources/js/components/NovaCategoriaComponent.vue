@@ -16,12 +16,29 @@
     }),
     methods: {
       salvar(app) {
-        axios
-          .post('/api/categorias', {
-            descricao: this.descricao,
+        axios({
+            url: '/api/categorias',
+            method: 'post',
+            data: {
+              descricao: this.descricao,
+            },
+            transformResponse: [function (data) {
+              
+              try {
+
+                let res = JSON.parse(data);
+
+                if (res.msg) alert(res.msg)
+                
+                return res;
+
+              } catch (e) {
+                console.error(e);
+              }
+            }],
           })
-          .then(data => {
-            this.categoria = data.data;
+          .then(response => {
+            this.categoria = response.data;
             app.showModal = false;
             app.$children.forEach(children => {
 
@@ -32,7 +49,6 @@
           })
           .catch(error => {
               console.log(error)
-              alert(error);
           })
       }
     }
