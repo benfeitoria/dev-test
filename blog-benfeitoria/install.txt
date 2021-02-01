@@ -1,0 +1,7 @@
+Criar base de dados MySql com nome benfeitoria;
+
+No diretório raiz do projeto executar os seguintes comandos no prompt:
+
+- npm run dev
+- php artisan migrate
+- php artisan serve
