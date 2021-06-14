@@ -18,12 +18,13 @@ class CreatePostsTable extends Migration
             $table->string('image_path');
             $table->string('title');
             $table->text('content');
+            $table->string('slug');
             $table->timestamp('desactived_at')->nullable();
             $table->integer('category_id');
             $table->integer('user_id');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->index(['created_at', 'title', 'user_id', 'category_id']);
+            $table->index(['created_at', 'title', 'user_id', 'category_id', 'slug']);
             $table->softDeletes();
             $table->timestamps();
         });
