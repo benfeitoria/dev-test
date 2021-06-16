@@ -9,6 +9,12 @@ use stdClass;
 interface IPostRepository
 {
     /**
+     * @param string $param
+     * @return Collection
+     */
+    public function searchPost(string $param) : Collection;
+
+    /**
      * @return Collection
      */
     public function listPosts() : Collection;
@@ -28,19 +34,7 @@ interface IPostRepository
 
     /**
      * @param Post $post
-     * @return Post|null
+     * @return bool
      */
-    public function delete(Post $post) : ?Post;
-
-    /**
-     * @param Post $post
-     * @return Post|null
-     */
-    public function desactive(Post $post) : ?Post;
-
-    /**
-     * @param Post $post
-     * @return Post|null
-     */
-    public function active(Post $post) : ?Post;
+    public function delete(Post $post) : bool;
 }

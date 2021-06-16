@@ -178,7 +178,7 @@
     export default {
         props: {
             canLogin: Boolean,
-            // canRegister: Boolean,
+            canRegister: Boolean,
             laravelVersion: String,
             phpVersion: String,
         }

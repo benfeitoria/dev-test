@@ -20,7 +20,6 @@ class Post extends Model
         'image_path',
         'title',
         'content',
-        'desactived_t',
         'category_id',
         'user_id',
     ];

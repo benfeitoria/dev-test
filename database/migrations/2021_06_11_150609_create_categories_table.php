@@ -17,7 +17,6 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->timestamp('desactived_at')->nullable();
             $table->index(['name', 'created_at', 'deleted_at', 'slug']);
             $table->softDeletes();
             $table->timestamps();

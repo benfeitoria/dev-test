@@ -178,8 +178,8 @@ return [
         /**
          * Custom Providers
          */
-        \App\Architecture\Users\Providers\UsersServiceProvider::class,
         \App\Architecture\Posts\Providers\PostsServiceProvider::class,
+        \App\Architecture\Categories\Providers\CategoriesServiceProvider::class,
 
     ],
 

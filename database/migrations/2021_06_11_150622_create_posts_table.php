@@ -19,7 +19,6 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->text('content');
             $table->string('slug');
-            $table->timestamp('desactived_at')->nullable();
             $table->integer('category_id');
             $table->integer('user_id');
             $table->foreign('category_id')->references('id')->on('categories');

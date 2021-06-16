@@ -29,6 +29,18 @@ class PostService implements IPostService
         $this->IPostRepository = $IPostRepository;
     }
 
+    /**
+     * @param string $param
+     * @return Collection
+     */
+    public function searchPost(string $param) : Collection
+    {
+        return $this->IPostRepository->searchPost($param);
+    }
+
+    /**
+     * @return Collection
+     */
     public function listPosts(): Collection
     {
         return $this->IPostRepository->listPosts();
@@ -59,35 +71,13 @@ class PostService implements IPostService
 
     /**
      * @param Post $post
-     * @return Post|null
+     * @return bool
      * @throws SystemException
      */
-    public function delete(Post $post): ?Post
+    public function delete(Post $post): bool
     {
         $this->getPostValidate()->validateInt($post->id);
         return $this->IPostRepository->delete($post);
-    }
-
-    /**
-     * @param Post $post
-     * @return Post|null
-     * @throws SystemException
-     */
-    public function desactive(Post $post): ?Post
-    {
-        $this->getPostValidate()->validateInt($post->id);
-        return $this->IPostRepository->desactive($post);
-    }
-
-    /**
-     * @param Post $post
-     * @return Post|null
-     * @throws SystemException
-     */
-    public function active(Post $post): ?Post
-    {
-        $this->getPostValidate()->validateInt($post->id);
-        return $this->IPostRepository->active($post);
     }
 
     /**

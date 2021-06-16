@@ -9,8 +9,7 @@
                             <!-- Logo -->
                             <div class="flex-shrink-0 flex items-center">
                                 <inertia-link :href="route('dashboard')">
-                                    <strong>Desafio Benfeitoria</strong>
-<!--                                    <breeze-application-logo class="block h-9 w-auto" />-->
+                                    <breeze-application-logo class="block h-9 w-auto" />
                                 </inertia-link>
                             </div>
 
@@ -65,6 +64,12 @@
                         <breeze-responsive-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
                             Dashboard
                         </breeze-responsive-nav-link>
+<!--                        <breeze-responsive-nav-link :href="route('posts')" :active="route().current('posts')">-->
+<!--                            Posts-->
+<!--                        </breeze-responsive-nav-link>-->
+<!--                        <breeze-responsive-nav-link :href="route('categories')" :active="route().current('categories')">-->
+<!--                            Categories-->
+<!--                        </breeze-responsive-nav-link>-->
                     </div>
 
                     <!-- Responsive Settings Options -->

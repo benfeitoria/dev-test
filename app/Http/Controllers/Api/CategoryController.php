@@ -2,84 +2,73 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Architecture\Categories\Enum\CategoryEnum;
+use App\Architecture\Categories\Models\Category;
+use App\Enum\StatusEnum;
+use App\Http\Requests\Categories\CategoryRequest;
+use Illuminate\Http\JsonResponse;
+use Exception;
+use Throwable;
 
-class CategoryController extends Controller
+class CategoryController extends BaseController
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @param CategoryRequest $request
+     * @return JsonResponse
+     * @throws Throwable
      */
-    public function index()
+    public function store(CategoryRequest $request) : JsonResponse
     {
-        //
+        try {
+            $params = new \stdClass();
+            $params->name = $this->limpa_tags($request->input('name'));
+            $params->slug = $this->limpa_tags(str_replace(' ','_',trim($request->input('slug'))));
+
+            $this->ICategoryService->store($params);
+
+            return $this->returnResponse(CategoryEnum::CREATED, StatusEnum::CREATED);
+        } catch (Exception $err) {
+            report($err);
+            $this->shootExeception($err, CategoryEnum::NOT_CREATED);
+        }
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @param Category $category
+     * @param CategoryRequest $request
+     * @return JsonResponse
+     * @throws Throwable
      */
-    public function create()
+    public function update(Category $category, CategoryRequest $request) : JsonResponse
     {
-        //
+        try {
+            $params = new \stdClass();
+            $params->name = $this->limpa_tags($request->input('name'));
+            $params->slug = $this->limpa_tags(str_replace(' ','_',trim($request->input('slug'))));
+
+            $this->ICategoryService->update($category, $params);
+
+            return $this->returnResponse(CategoryEnum::UPDATED, StatusEnum::OK);
+        } catch (Exception $err) {
+            report($err);
+            $this->shootExeception($err, CategoryEnum::NOT_UPDATED);
+        }
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Category $category
+     * @return JsonResponse
+     * @throws Throwable
      */
-    public function store(Request $request)
+    public function destroy(Category $category): JsonResponse
     {
-        //
-    }
+        try {
+            $this->ICategoryService->delete($category);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+            return $this->returnResponse(CategoryEnum::DELETED, StatusEnum::OK);
+        } catch (Exception $err) {
+            report($err);
+            $this->shootExeception($err, CategoryEnum::NOT_DELETED);
+        }
     }
 }

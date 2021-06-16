@@ -38,34 +38,33 @@ class CategoryRepository implements ICategoryRepository
     }
 
     /**
-     * @inheritDoc
+     * @param Category $category
+     * @param stdClass $params
+     * @return Category
+     * @throws SystemException
      */
     public function update(Category $category, stdClass $params): Category
     {
-        // TODO: Implement update() method.
+        $category->name = $params->name;
+        $category->slug = $params->slug;
+
+        if (!$category->save()) {
+          throw new SystemException('Erro ao atualizar a categoria.', 400);
+        }
+
+        $category->refresh();
+
+        return $category;
     }
 
     /**
-     * @inheritDoc
+     * @param Category $category
+     * @return Category|null
      */
     public function delete(Category $category): ?Category
     {
-        // TODO: Implement delete() method.
-    }
+        $category->forceDelete();
 
-    /**
-     * @inheritDoc
-     */
-    public function desactive(Category $category): ?Category
-    {
-        // TODO: Implement desactive() method.
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function active(Category $category): ?Category
-    {
-        // TODO: Implement active() method.
+        return $category;
     }
 }

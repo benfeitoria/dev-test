@@ -47,24 +47,25 @@ class CategoryService implements ICategoryService
         return $this->ICategoryRepository->store($params);
     }
 
+    /**
+     * @param Category $category
+     * @param stdClass $params
+     * @return Category
+     * @throws Throwable
+     */
     public function update(Category $category, stdClass $params): Category
     {
-        // TODO: Implement update() method.
+        $this->getCategoryValidate()->validaParametros($params);
+        return $this->ICategoryRepository->update($category, $params);
     }
 
+    /**
+     * @param Category $category
+     * @return Category|null
+     */
     public function delete(Category $category): ?Category
     {
-        // TODO: Implement delete() method.
-    }
-
-    public function desactive(Category $category): ?Category
-    {
-        // TODO: Implement desactive() method.
-    }
-
-    public function active(Category $category): ?Category
-    {
-        // TODO: Implement active() method.
+        return $this->ICategoryRepository->delete($category);
     }
 
     /**
