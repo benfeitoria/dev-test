@@ -28,6 +28,7 @@ Route::middleware(['auth', 'verified'])->prefix('/dashboard')->group(function ()
 
     Route::prefix('/api')->group(function () {
         Route::prefix('/posts')->group(function () {
+            Route::post('/search', [PostApi::class, 'search'])->name('posts.search');
             Route::post('/create', [PostApi::class, 'store'])->name('posts.create');
             Route::post('/update/{post}', [PostApi::class, 'update'])->name('posts.update');
             Route::post('/delete/{post}', [PostApi::class, 'destroy'])->name('posts.delete');

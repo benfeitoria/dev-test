@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Architecture\Posts\Enum\PostEnum;
+
 use App\Architecture\Posts\Models\Post;
 use App\Enum\StatusEnum;
 use App\Http\Requests\Posts\PostRequest;
@@ -15,6 +16,22 @@ use Throwable;
 
 class PostController extends BaseController
 {
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     * @throws Throwable
+     */
+    public function search(Request $request)
+    {
+        try {
+            $posts = $this->IPostService->searchPost($this->limpa_tags($request->input('search')));
+
+            return $this->returnResponse($posts, StatusEnum::OK);
+        } catch (Exception $err) {
+            report($err);
+            $this->shootExeception($err, PostEnum::NOT_FOUND);
+        }
+    }
     /**
      * @param PostRequest $request
      * @return JsonResponse
