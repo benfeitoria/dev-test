@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  server:
+    container_name: blogserver
+    image: huriellopes/php-nginx
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./:/app
+    ports:
+      - 80:80
+    networks:
+      - benfeitoria_network
+
+  database:
+    container_name: benfeitoriadb
+    image: postgres:9.6
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "senha_desejada"
+      POSTGRES_DB: "nome_banco"
+    restart: always
+    ports:
+      - 5432:5432
+    networks:
+      - benfeitoria_network
+
+networks:
+  benfeitoria_network:
